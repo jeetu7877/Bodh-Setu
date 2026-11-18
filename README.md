@@ -1,69 +1,97 @@
-# Bodh Setu (बोध सेतु)
+# Bodh Setu (बोध सेतु) - Phase 1
 
-**Bodh Setu** is an early developmental screening, observation, and intervention platform bridging parents, educators, and early child specialists. It is aligned with Indian foundational stage developmental guidelines (NEP-2020 & RBSK).
+> **"Bridging Understanding, Unlocking Potential"**
 
----
-
-## 🚀 Quick Start
-
-To run Bodh Setu locally on your laptop:
-
-```bash
-cd "Desktop\Bodh-Setu"
-npm run dev
-```
-
-Open your web browser and go to:
-👉 **[http://localhost:5173](http://localhost:5173)**
+Bodh Setu is an early developmental support and screening platform connecting parents and educators to unlock every learner's potential.
 
 ---
 
-## 🌟 Key Features
-
-1. **Role Selection (Parent & Educator Modes)**:
-   - **Parent / Guardian View**: Tracks individual child developmental milestones (e.g. Aarav Sharma, 3.5 yrs), active IEP goals, and play missions.
-   - **Educator / Teacher View**: Classroom overview (e.g. KG-1 Sunflower Section, 18 students), attendance, student screening tracking, and inclusive circle time lesson plans.
-   - **Instant Demo Switcher**: Instant one-click demo login buttons for both roles without typing credentials.
-
-2. **Five Bottom Navigation Modules**:
-   - **Home**: Daily developmental wisdom, child/classroom summary, priority milestones, and today's play missions.
-   - **Activities**: Evidence-based play activities categorized by domain (Fine Motor, Gross Motor, Communication, Sensory, Problem-Solving, Social-Emotional) with step-by-step instructions and completion tracking.
-   - **Screening**: Interactive 9-question standardized early milestone questionnaire (inspired by ASQ-3 & PRASHO) with instant percentage scoring, developmental status assessment, and clinical recommendations.
-   - **Progress**: Multi-domain progress radar (Communication, Gross Motor, Fine Motor, Cognitive, Personal-Social), milestone achievement timeline, and printable summary report.
-   - **Resources**: Verified directory of Indian national helplines (Childline 1098, Kiran, NIMHANS, NIEPID), RBSK / DEIC early intervention guidance, and preschool inclusive checklists.
-
----
-
-## 📁 Project Structure
+## 🏗️ Project Architecture
 
 ```
 Bodh-Setu/
-├── public/                 # Static assets & SVG icons
-├── src/
-│   ├── assets/             # Images and styles
-│   ├── components/
-│   │   ├── common/         # Header, BottomNavigation, Toast
-│   │   ├── auth/           # AuthModal, RoleSelector
-│   │   ├── home/           # HomeView (Parent & Teacher views)
-│   │   ├── activities/     # ActivitiesView & Activity details modal
-│   │   ├── screening/      # ScreeningView, Questionnaire & Results
-│   │   ├── progress/       # ProgressView, Domain radar & Timeline
-│   │   └── resources/      # ResourcesView & Helpline directory
-│   ├── context/            # AuthContext, AppContext & custom hooks
-│   ├── data/               # Mock developmental & screening datasets
-│   ├── App.jsx             # Main application container
-│   ├── main.jsx            # React root entry point
-│   └── index.css           # Tailwind CSS directives
-├── index.html              # HTML shell & font definitions
-├── vite.config.js          # Vite configuration with Tailwind plugin
-└── package.json            # Scripts & project dependencies
+│
+├── frontend/                     # React.js + Vite Client Application
+│   ├── src/
+│   │   ├── components/           # Header, BottomNavigation, EducationalIllustration
+│   │   ├── pages/                # LoginPage, RoleSelectionPage, DashboardPage
+│   │   ├── assets/               # Branding and styles
+│   │   ├── App.jsx               # Client authentication state & view routing
+│   │   ├── main.jsx              # Entry point
+│   │   └── index.css             # Soft pastel theme & Tailwind styles
+│   ├── index.html                # HTML document shell
+│   ├── vite.config.js            # Vite configuration
+│   └── package.json              # Frontend dependencies and scripts
+│
+├── backend/                      # Node.js + Express.js API Server
+│   ├── src/
+│   │   ├── routes/               # Express route handlers (healthRoutes.js)
+│   │   ├── controllers/          # Business logic controllers (healthController.js)
+│   │   └── config/               # Environment & server config (index.js)
+│   ├── server.js                 # Express server entry point
+│   └── package.json              # Backend dependencies and scripts
+│
+├── .gitignore                    # Git ignore rules
+└── README.md                     # Documentation
 ```
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Running the Application
 
-- **Framework**: React 19 + Vite
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Code Quality**: Oxlint (0 warnings, 0 errors)
+### 1. Frontend (React + Vite)
+In a terminal, run:
+```bash
+cd frontend
+npm run dev
+```
+Open **[http://localhost:5173](http://localhost:5173)** in your browser.
+
+### 2. Backend (Node.js + Express)
+In a separate terminal, run:
+```bash
+cd backend
+npm run dev
+# or: npm start
+```
+The server will start on port `5000`.
+Health-check endpoint: **[http://localhost:5000/api/health](http://localhost:5000/api/health)**
+
+---
+
+## 🌟 Phase 1 Implemented Features
+
+1. **Login / Signup Page**:
+   - Bodh Setu branding with tagline: *"Bridging Understanding, Unlocking Potential"*.
+   - Welcome heading: *"Welcome to Bodh Setu"* & Subtitle: *"Every learner deserves a better way to learn."*
+   - Email and Password input fields.
+   - Show/Hide password toggle.
+   - Create Account / Sign Up toggle with Name field.
+   - Forgot Password demo modal.
+   - Google Sign-In demo button.
+   - Beautiful educational illustration in a soft pastel educational palette (lavender, sky blue, mint green, and white).
+
+2. **Frontend-Only Demo Authentication**:
+   - Registers new users and stores accounts in `localStorage`.
+   - Remembers user session across browser refreshes.
+   - Logout functionality clears session and resets to login.
+
+3. **Parent / Teacher Role Selection**:
+   - Interactive role selection cards for **Parent** and **Teacher**.
+   - Persists selected role in `localStorage`.
+   - Navigates seamlessly to the dashboard.
+
+4. **Home Dashboard with Exactly 5 Empty Sections**:
+   - Common Top Header: Bodh Setu logo, welcome message, user profile icon, Parent/Teacher role badge, and logout button.
+   - Common Bottom Navigation with 5 clickable options:
+     - **Home** (displays only the title "Home")
+     - **Activities** (displays only the title "Activities")
+     - **Screening** (displays only the title "Screening")
+     - **Progress** (displays only the title "Progress")
+     - **Resources** (displays only the title "Resources")
+   - Smooth navigation transitions with active and inactive tab styling.
+   - Completely clean main content area with zero dummy cards or premature modules.
+
+5. **Express.js Backend Health API**:
+   - `GET /api/health` returns status confirmation.
+   - Modular architecture ready with `routes/`, `controllers/`, and `config/`.
