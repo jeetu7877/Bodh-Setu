@@ -9,6 +9,10 @@ dist/
 dist-ssr/
 frontend/dist/
 *.local
+*.apk
+frontend/android/.gradle/
+frontend/android/build/
+frontend/android/app/build/
 
 # Environment variables & secrets
 .env
