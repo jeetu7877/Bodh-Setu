@@ -11,18 +11,26 @@ export const RoleSelectionPage = ({ user, onRoleSelected }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-[#FAF8FF] via-[#F4F7FF] to-[#F0FDF9]">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-slate-50">
       <div className="w-full max-w-xl">
         {/* Brand Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-sky-400 text-white shadow-lg shadow-indigo-500/20 mb-3">
-            <HeartHandshake className="w-7 h-7" />
+          <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-900 text-white shadow-2xs mb-3">
+            <HeartHandshake className="w-5 h-5 text-teal-400" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-lg font-bold text-slate-900 tracking-tight">
+              Bodh Setu
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-200/60 text-slate-700 border border-slate-200">
+              बोध सेतु
+            </span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">
             Select Your Role
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1.5 max-w-sm mx-auto">
-            Choose how you will be using Bodh Setu to get started.
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+            Choose how you will be using Bodh Setu to personalize your experience.
           </p>
         </div>
 
@@ -31,21 +39,21 @@ export const RoleSelectionPage = ({ user, onRoleSelected }) => {
           {/* Parent Card */}
           <div
             onClick={() => setSelectedRole('Parent')}
-            className={`relative p-6 rounded-2xl border-2 transition-all duration-200 cursor-pointer bg-white ${
+            className={`relative p-6 rounded-xl border transition-all duration-150 cursor-pointer bg-white ${
               selectedRole === 'Parent'
-                ? 'border-indigo-600 bg-indigo-50/30 shadow-md ring-2 ring-indigo-500/20'
-                : 'border-slate-200 hover:border-slate-300 hover:shadow-xs'
+                ? 'border-slate-900 bg-slate-50/60 shadow-2xs ring-1 ring-slate-900'
+                : 'border-slate-200 hover:border-slate-300'
             }`}
           >
             {selectedRole === 'Parent' && (
-              <div className="absolute top-4 right-4 text-indigo-600">
-                <CheckCircle2 className="w-5 h-5 fill-indigo-100" />
+              <div className="absolute top-4 right-4 text-slate-900">
+                <CheckCircle2 className="w-5 h-5" />
               </div>
             )}
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
-              <Baby className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-lg bg-slate-100 text-teal-800 flex items-center justify-center mb-4 border border-slate-200/60">
+              <Baby className="w-5 h-5" />
             </div>
-            <h2 className="text-lg font-bold text-slate-800">Parent</h2>
+            <h2 className="text-base font-bold text-slate-900">Parent</h2>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
               Support your child's learning journey, follow developmental guidance, and nurture potential at home.
             </p>
@@ -54,21 +62,21 @@ export const RoleSelectionPage = ({ user, onRoleSelected }) => {
           {/* Teacher Card */}
           <div
             onClick={() => setSelectedRole('Teacher')}
-            className={`relative p-6 rounded-2xl border-2 transition-all duration-200 cursor-pointer bg-white ${
+            className={`relative p-6 rounded-xl border transition-all duration-150 cursor-pointer bg-white ${
               selectedRole === 'Teacher'
-                ? 'border-sky-600 bg-sky-50/30 shadow-md ring-2 ring-sky-500/20'
-                : 'border-slate-200 hover:border-slate-300 hover:shadow-xs'
+                ? 'border-slate-900 bg-slate-50/60 shadow-2xs ring-1 ring-slate-900'
+                : 'border-slate-200 hover:border-slate-300'
             }`}
           >
             {selectedRole === 'Teacher' && (
-              <div className="absolute top-4 right-4 text-sky-600">
-                <CheckCircle2 className="w-5 h-5 fill-sky-100" />
+              <div className="absolute top-4 right-4 text-slate-900">
+                <CheckCircle2 className="w-5 h-5" />
               </div>
             )}
-            <div className="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center mb-4">
-              <GraduationCap className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-lg bg-slate-100 text-teal-800 flex items-center justify-center mb-4 border border-slate-200/60">
+              <GraduationCap className="w-5 h-5" />
             </div>
-            <h2 className="text-lg font-bold text-slate-800">Teacher</h2>
+            <h2 className="text-base font-bold text-slate-900">Teacher</h2>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
               Observe classroom learning, support foundational skill development, and collaborate with families.
             </p>
@@ -79,7 +87,7 @@ export const RoleSelectionPage = ({ user, onRoleSelected }) => {
         <button
           type="button"
           onClick={handleConfirm}
-          className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-sky-600 text-white font-bold text-sm shadow-md shadow-indigo-500/25 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          className="w-full py-3 px-6 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-2xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
         >
           <span>Continue to Dashboard</span>
           <ArrowRight className="w-4 h-4" />
